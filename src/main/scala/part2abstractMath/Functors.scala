@@ -32,7 +32,7 @@ object Functors {
   def do10xTry(trying: Try[Int]): Try[Int]          = trying.map(_ * 10)
 
 //  def do10x[F[_]: Functor](container: F[Int]): F[Int] = Functor[F[Int]](container)(_ * 10)
-  def do10x[F[_]](container: F[Int])(implicit functor: Functor[F]): F[Int] = functor.map(container)(_ * 10)
+//  def do10x[F[_]](container: F[Int])(implicit functor: Functor[F]): F[Int] = functor.map(container)(_ * 10)
 
   //TODO 1: define your own functor for a binary tree
   //hint : define an object which extends Functor[Tree]
@@ -71,7 +71,7 @@ object Functors {
 //    println(do10x(List(1, 2, 3)))
 //    println(do10x(Option(2)))
 //    println(do10x(Try(35)))
-    println(do10x[Tree](Branch(30, Leaf(10), Leaf(20))))
+    println(do10x(Tree.branch(30, Tree.leaf(10), Tree.leaf(20))))
     println(incrementedTree)
   }
 }

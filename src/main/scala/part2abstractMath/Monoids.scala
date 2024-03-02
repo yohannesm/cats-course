@@ -59,6 +59,13 @@ object Monoids {
   //TODO 3 - shopping cart and online stores with Monoids
   //hint define your Monoid
   case class ShoppingCart(items: List[String], total: Double)
+
+  import cats.instances.list._
+//  implicit val monoidShoppingCartInstance = Monoid.instance[ShoppingCart](
+//    (ShoppingCart(List.empty[String], 0.0)),
+//    (sc1, sc2) => ShoppingCart(sc1.items |+| sc2.items, sc1.total + sc2.total)
+//  )
+
   implicit def monoidSC: Monoid[ShoppingCart] = new Monoid[ShoppingCart] {
     override def empty: ShoppingCart = ShoppingCart(List(), 0.0)
 
